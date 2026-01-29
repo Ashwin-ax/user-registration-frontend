@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #36d1dc, #5b86e5);
 }
 
 .container {
@@ -11,7 +11,7 @@ body {
   height: 100vh;
 }
 
-.register-card {
+.login-card {
   background: white;
   padding: 2.5rem;
   width: 320px;
@@ -20,7 +20,7 @@ body {
   text-align: center;
 }
 
-.register-card input {
+.login-card input {
   width: 100%;
   padding: 12px;
   margin-bottom: 1rem;
@@ -28,10 +28,10 @@ body {
   border: 1px solid #ddd;
 }
 
-.register-card button {
+.login-card button {
   width: 100%;
   padding: 12px;
-  background: #667eea;
+  background: #36d1dc;
   border: none;
   border-radius: 8px;
   color: white;
@@ -42,7 +42,7 @@ body {
   margin-top: 1rem;
 }
 .switch-text a {
-  color: #667eea;
+  color: #36d1dc;
   font-weight: bold;
   text-decoration: none;
 }

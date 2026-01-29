@@ -2,23 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 
-export default function Register() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+export default function Login() {
+  const [formData, setFormData] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
       const response = await fetch(
-        "https://user-registration-backend-ejze.onrender.com/api/register",
+        "https://user-registration-backend-ejze.onrender.com/api/login",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -29,8 +25,7 @@ export default function Register() {
       const data = await response.json();
 
       if (response.ok) {
-        alert(data.message);
-        setFormData({ name: "", email: "", password: "" });
+        alert(`Welcome ${data.user.name} 🎉`);
       } else {
         alert(data.message);
       }
@@ -41,21 +36,14 @@ export default function Register() {
 
   return (
     <div className="container">
-      <div className="register-card">
-        <h2>Create Account</h2>
+      <div className="login-card">
+        <h2>Login</h2>
 
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            onChange={handleChange}
-            required
-          />
+        <form onSubmit={handleLogin}>
           <input
             type="email"
             name="email"
-            placeholder="Email Address"
+            placeholder="Email"
             onChange={handleChange}
             required
           />
@@ -67,11 +55,11 @@ export default function Register() {
             required
           />
 
-          <button type="submit">Register</button>
+          <button type="submit">Login</button>
         </form>
 
         <p className="switch-text">
-          Already have an account? <Link to="/login">Login</Link>
+          Don't have an account? <Link to="/">Register</Link>
         </p>
       </div>
     </div>
